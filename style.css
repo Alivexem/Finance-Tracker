@@ -113,10 +113,6 @@ select{
     margin-bottom: 65px;
     
 }
-h1:active{
-    margin-top: -1px;
-}
-
 .buts{
     width: 135px;
     height: 50px;
