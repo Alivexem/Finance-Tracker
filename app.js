@@ -693,9 +693,18 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
 })
 
 function updateLocalStorage() {
-    localStorage.setItem('income_sum', JSON.stringify(income_sum));
-    localStorage.setItem('expense_sum', JSON.stringify(expense_sum));
+    let result = income_sum.reduce((a,b) => {
+        return b += a
+    })
+  
+    localStorage.setItem('income_sum', JSON.stringify(result));
+    let exresult = expense_sum.reduce((a,b) => {
+        return b += a
+    },0)
+    localStorage.setItem('expense_sum', JSON.stringify(exresult));
     localStorage.setItem('sum_total', sum_total);
+
+
 
     const netIncome = sum_total - expenses;
     const netProfit = expenses - sum_total;
