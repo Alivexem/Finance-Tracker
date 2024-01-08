@@ -693,16 +693,13 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
 })
 
 function updateLocalStorage() {
-    let result = income_sum.reduce((a,b) => {
-        return b += a
-    })
-  
-    localStorage.setItem('income_sum', JSON.stringify(result));
-    let exresult = expense_sum.reduce((a,b) => {
-        return b += a
-    },0)
-    localStorage.setItem('expense_sum', JSON.stringify(exresult));
+    
+    localStorage.setItem('income_sum', JSON.stringify(income_sum));
+    
+    localStorage.setItem('expense_sum', JSON.stringify(expense_sum));
     localStorage.setItem('sum_total', sum_total);
+
+
 
     const netIncome = sum_total - expenses;
     const netProfit = expenses - sum_total;
@@ -717,23 +714,15 @@ function updateLocalStorage() {
 
 
 function retrieveLocalStorage() {
-    
     income_sum = JSON.parse(localStorage.getItem('income_sum')) || [];
     expense_sum = JSON.parse(localStorage.getItem('expense_sum')) || [];
     sum_total = parseInt(localStorage.getItem('sum_total')) || 0;
 
     const netIncome = parseInt(localStorage.getItem('netIncome')) || 0;
     const netProfit = parseInt(localStorage.getItem('netProfit')) || 0;
-    let result = income_sum.reduce((a,b) => {
-        return b += a
-    })
-   
 
-    total_in.value = `TOTAL INCOME: ${result.toLocaleString('en-US')}`;
-    let exresult = expense_sum.reduce((a,b) => {
-        return b += a
-    },0)
-    total_ex.value = `TOTAL EXPENSES: ${exresult.toLocaleString('en-US')}`;
+    total_in.value = `TOTAL INCOME: ${income_sum.toLocaleString('en-US')}`;
+    total_ex.value = `TOTAL EXPENSES: ${expense_sum.toLocaleString('en-US')}`;
     net_in.value = `NET INCOME: ${netIncome.toLocaleString('en-US')}`;
     idisplay.innerText = netIncome.toLocaleString('en-US');
     if (netIncome < 0) {
