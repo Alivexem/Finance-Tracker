@@ -693,13 +693,9 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
 })
 
 function updateLocalStorage() {
-    
     localStorage.setItem('income_sum', JSON.stringify(income_sum));
-    
     localStorage.setItem('expense_sum', JSON.stringify(expense_sum));
     localStorage.setItem('sum_total', sum_total);
-
-
 
     const netIncome = sum_total - expenses;
     const netProfit = expenses - sum_total;
