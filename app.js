@@ -729,9 +729,14 @@ function retrieveLocalStorage() {
 
     const netIncome = parseInt(localStorage.getItem('netIncome')) || 0;
     const netProfit = parseInt(localStorage.getItem('netProfit')) || 0;
-
-    total_in.value = `TOTAL INCOME: ${income_sum.toLocaleString('en-US')}`;
-    total_ex.value = `TOTAL EXPENSES: ${expense_sum.toLocaleString('en-US')}`;
+    let in_total = income_sum.reduce((a,b) => {
+      return b += a
+    },0)
+    total_in.value = `TOTAL INCOME:  ${in_total.toLocaleString('en-US')}`;
+    let ex_total = expense_sum.reduce((a,b) => {
+      return b += a
+    },0)
+    total_ex.value = `TOTAL EXPENSES: ${ex_total.toLocaleString('en-US')}`;
     net_in.value = `NET INCOME: ${netIncome.toLocaleString('en-US')}`;
     idisplay.innerText = netIncome.toLocaleString('en-US');
     if (netIncome < 0) {
@@ -858,4 +863,4 @@ window.onload = () => {
     retrieveLocalStorage();
         
 };
-//
+// new 
