@@ -408,6 +408,7 @@ first_paragraph.innerText = `${amount} added to your income from ${income_source
     btn.addEventListener("click",() => {
       let sure = confirm(`Are you sure you want to delete this record?`)
       if(sure){
+        
         new_div.remove()
         let index = income_sum.indexOf(income)
         income_sum.splice(index,1)
@@ -457,8 +458,13 @@ first_paragraph.innerText = `${amount} added to your income from ${income_source
            totex.style.border = "1.5px solid red"
         }
         
+        updateTotalAndDisplay();  
         updateLocalStorage();
-    
+        
+          incomeRecordsArray.splice(incomeRecordsArray.findIndex(item => item.amount === record.amount), 1);
+          localStorage.setItem('incomeRecords', JSON.stringify(incomeRecordsArray));
+
+        
      }
   })
     
@@ -620,6 +626,7 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
     btn.addEventListener("click",() => {
       let sure = confirm(`Are you sure you want to delete this record?`)
       if(sure){
+       
         new_div.remove()
         let index = expense_sum.indexOf(spending)
         expense_sum.splice(index, 1)
@@ -666,7 +673,13 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
            net_in.style.border = "1.5px solid green"
         }
                 
-        updateLocalStorage();    
+        updateTotalAndDisplay();  
+        updateLocalStorage();
+        
+           expenseRecordsArray.splice(expenseRecordsArray.findIndex(item => item.amount === record.amount), 1);
+          localStorage.setItem('expenseRecords', JSON.stringify(expenseRecordsArray));
+        
+        
       }
     })
   
@@ -845,3 +858,4 @@ window.onload = () => {
     retrieveLocalStorage();
         
 };
+//
