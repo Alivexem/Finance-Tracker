@@ -363,6 +363,7 @@ first_paragraph.innerText = `${amount} added to your income from ${income_source
         income_alert.style.display = "block"
         loss.innerText = Math.abs(evaluate).toLocaleString('en-US')
         idisplay.style.color = "red"
+        exdisplay.style.color = "black"
     }else{
         income_alert.style.display = "none"
         net_in.style.border = "1.5px solid green"
@@ -428,6 +429,7 @@ first_paragraph.innerText = `${amount} added to your income from ${income_source
            income_alert.style.display = "block"
            loss.innerText = Math.abs(evaluate).toLocaleString('en-US')
            idisplay.style.color = "red"
+           exdisplay.style.color = "black"
        }else{
            income_alert.style.display = "none"
            net_in.style.border = "1.5px solid green"
@@ -452,6 +454,7 @@ first_paragraph.innerText = `${amount} added to your income from ${income_source
            net_in.style.border = "1.5px solid green"
            expense_alert.style.display = "block"
            exdisplay.style.color = "green"
+           idisplay.style.color = "black"
            wealth.innerText = Math.abs(exevaluate).toLocaleString('en-US')
         }else{
            expense_alert.style.display = "none"
@@ -582,6 +585,7 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
     if(evaluate < 0){
        totex.style.border = "1.5px solid green"
        exdisplay.style.color = "green"
+       idisplay.style.color = "black"
        wealth.innerText = Math.abs(evaluate).toLocaleString('en-US')
        expense_alert.style.display = "block"
     }else{
@@ -605,6 +609,7 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
         net_in.style.border = "1.5px solid red"
         totex.style.border = "1.5px solid red"
         idisplay.style.color = "red"
+        exdisplay.style.color = "black"
         income_alert.style.display = "block"
         loss.innerText = Math.abs(ievaluate).toLocaleString('en-US')
     }else{
@@ -645,6 +650,7 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
            
             totex.style.border = "1.5px solid red"
             idisplay.style.color = "red"
+            exdisplay.style.color = "black"
             income_alert.style.display = "block"
             loss.innerText = Math.abs(ievaluate).toLocaleString('en-US')
         }else{
@@ -666,6 +672,7 @@ first_paragraph.innerText = `Spent ${amount} on ${_source}`;
         if(evaluate < 0){
            totex.style.border = "1.5px solid green"
            exdisplay.style.color = "green"
+           idisplay.style.color = "black"
            wealth.innerText = Math.abs(evaluate).toLocaleString('en-US')
            expense_alert.style.display = "block"
         }else{
@@ -741,6 +748,7 @@ function retrieveLocalStorage() {
     idisplay.innerText = netIncome.toLocaleString('en-US');
     if (netIncome < 0) {
         idisplay.style.color = "red";
+        exdisplay.style.color = "black"
         income_alert.style.display = "block";
         loss.innerText = Math.abs(netIncome).toLocaleString('en-US');
     }
@@ -748,6 +756,7 @@ function retrieveLocalStorage() {
     exdisplay.innerText = netProfit.toLocaleString('en-US');
     if (netProfit < 0) {
         exdisplay.style.color = "green";
+        idisplay.style.color = "black"
         wealth.innerText = Math.abs(netProfit).toLocaleString('en-US');
         expense_alert.style.display = "block";
     }
@@ -837,6 +846,7 @@ function updateTotalAndDisplay() {
         income_alert.style.display = "block";
         loss.innerText = Math.abs(evaluate).toLocaleString('en-US');
         idisplay.style.color = "red";
+        exdisplay.style.color = "black"
     } else {
         income_alert.style.display = "none";
         net_in.style.border = "1.5px solid green";
@@ -850,6 +860,7 @@ function updateTotalAndDisplay() {
     if (exevaluate < 0) {
         totex.style.border = "1.5px solid green";
         exdisplay.style.color = "green";
+        idisplay.style.color = "black"
         wealth.innerText = Math.abs(exevaluate).toLocaleString('en-US');
         expense_alert.style.display = "block";
     } else {
@@ -863,4 +874,4 @@ window.onload = () => {
     retrieveLocalStorage();
         
 };
-// new 
+// new boom
