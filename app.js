@@ -981,10 +981,7 @@ function updateTotalAndDisplay() {
         totex.style.border = "1.5px solid red";
     }
 }
-
-
 window.onload = () => {
     retrieveLocalStorage();
-
 };
 // newest boom
